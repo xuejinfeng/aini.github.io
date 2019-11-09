@@ -1,0 +1,147 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+	<style>
+		.con{
+			width: 100px;
+			height: 100px;
+			background-size: 100px;
+		}
+	</style>
+</head>
+<body>
+	<button>查询</button>
+	<script type="text/javascript">
+		var btn = document.querySelector('button');
+		btn.onclick = function () {
+			var xhr = new XMLHttpRequest();
+			// api地址与参数之间用？拼接  参数与参数之间用&拼接
+			// get 请求通过地址栏传递参数 所以需要字符串拼接变量
+			xhr.open('post',"http://localhost:8888/login")
+			xhr.send();
+			xhr.onreadystatechange = function () 
+			 {
+				if (xhr.readyState == 4) {
+					console.log(xhr.responseText)
+					var res=JSON.parse(xhr.responseText)
+					if (res.code==1) {
+						alert("登录成功")
+					}
+				}
+				
+			}
+		}
+	</script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form {
+            width: 300px;
+            margin: 30px;
+            padding: 30px 50px 50px;
+            border: 1px solid #dcdcdc;
+            float: left;
+        }
+
+        label {
+            display: flex;
+            line-height: 30px;
+            margin-bottom: 20px;
+        }
+
+        span {
+            width: 100px;
+
+        }
+
+        input {
+            flex: 1;
+            border: 1px solid #dcdcdc;
+        }
+
+        input[type="submit"] {
+            color: #fff;
+            background: #f43553;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="http://192.168.0.111:8888/user/login">
+        <h2>登录</h2>
+        <label for="">
+            <span>用户名</span>
+            <input type="text" name="name" />
+        </label>
+        <label for="">
+            <span>密码</span>
+            <input type="password" name="password" />
+        </label>
+        <input type="submit" value="提交">
+    </form>
+    <form action="http://192.168.0.111:8888/user/register">
+        <h2>注册</h2>
+        <label for="">
+            <span>用户名</span>
+            <input type="text" name="name" />
+        </label>
+        <label for="">
+            <span>真实姓名</span>
+            <input type="text" name="realname" />
+        </label>
+        <label for="">
+            <span>密码</span>
+            <input type="password" name="password" />
+        </label>
+        <input type="submit" value="提交">
+    </form>
+    <form action="http://192.168.0.111:8888/user/updatePassword">
+        <h2>修改密码</h2>
+        <label for="">
+            <span>用户名</span>
+            <input type="text" name="name" />
+        </label>
+        <label for="">
+            <span>密码</span>
+            <input type="text" name="oldPassword" />
+        </label>
+        <label for="">
+            <span>密码</span>
+            <input type="text" name="newPassword" />
+        </label>
+        <label for="">
+            <span>密码</span>
+            <input type="text" name="againPassword" />
+        </label>
+        <input type="submit" value="提交">
+    </form>
+    <form action="http://192.168.0.111:8888/user/deleteUser">
+        <h2>删除用户</h2>
+        <label for="">
+            <span>用户名</span>
+            <input type="text" name="name" />
+        </label>
+        <input type="submit" value="提交">
+    </form>
+
+
+    <form action="http://192.168.0.111:8888" method="get">
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>
