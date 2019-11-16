@@ -1,2 +1,2 @@
 ### npm install
-### npm index.js
+### node index.js
